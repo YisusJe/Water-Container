@@ -35,7 +35,7 @@ void Tanque::CalcularSuperficie(){
 	
 	//vacio
 	
-	
+	//qlq
 	
 }
 void Tanque::setCodigo(char codigo[20]){

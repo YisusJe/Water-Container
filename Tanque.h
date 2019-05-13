@@ -2,7 +2,7 @@
 #define TanqueH
 
 
-using namespace std;
+using namespace std;//qlq
 
 class Tanque{
 	private:

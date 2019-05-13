@@ -24,5 +24,5 @@ class TanqueConico : public Tanque{
 	float getAltura();
 	int getAngulo();
 	
-	
+	//qlq
 };

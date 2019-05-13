@@ -1,7 +1,7 @@
 #include<iostream>
 #include "TanqueConico.h"
 
-using namespace std;
+using namespace std; //qlq
 
 TanqueConico::TanqueConico():Tanque(){
 	this->diametroInf=0;
