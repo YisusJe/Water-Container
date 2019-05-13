@@ -33,7 +33,7 @@ void Tanque::CalcularPrecio(){			//funciones puras
 }
 void Tanque::CalcularSuperficie(){
 	
-	
+	//vacio
 	
 	
 	
