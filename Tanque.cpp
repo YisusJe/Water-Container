@@ -25,7 +25,7 @@ Tanque::Tanque(char codigo[20],char color[11],float precio,float superficie){//C
 
 
 
-float Tanque::CalcularPrecio(){			//funciones puras
+float Tanque::CalcularPrecio(float precioF){			//funciones puras
 	
 	
 	

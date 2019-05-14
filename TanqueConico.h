@@ -12,7 +12,7 @@ class TanqueConico : public Tanque{
 	TanqueConico(char*,char*,float,float,float,float,float,int); //const alternativo
 		
 	float CalcularSuperficie(); //funciones heredadas de un virtual pure
-	float CalcularPrecio();
+	float CalcularPrecio(float);
 	
 	void setDiametroSup(float); //setters
 	void setDiametroInf(float);

@@ -14,7 +14,7 @@ class Tanque{
 		Tanque(char*,char*,float,float);	//Constructor alternativo
 
 		virtual float CalcularSuperficie()=0;	//funciones puras
-		virtual float CalcularPrecio()=0;
+		virtual float CalcularPrecio(float)=0;
 		
 		void setCodigo(char*);	//setters
 		void setColor(char*);

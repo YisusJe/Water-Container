@@ -22,13 +22,16 @@ float TanqueConico::CalcularSuperficie(){
 	const float PI=3.14159;
 	A=tan(2*angulo);
 	num=(PI*(pow(diametroSup,2)+pow(diametroInf,2)))+(pow(altura,1.33)/A);
-	
+	this->setSuperficie(num);
+	return num;
 }
-float TanqueConico::CalcularPrecio(){
-	float costoM;
-	
-	
-	
+float TanqueConico::CalcularPrecio(float precioF){  //PEDIRLE AL USUARIO EL PRECIO DE LA FIBRA DE VIDRIO
+	float costoM,ganancia;
+	costoM=precioF*(this->getSuperficie()) ;
+	ganancia=(costoM*20)/100;
+	precioF=costoM+ganancia;
+	this->setPrecio(precioF);
+	return precioF;
 }
 
 
