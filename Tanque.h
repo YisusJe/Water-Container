@@ -2,7 +2,7 @@
 #define TanqueH
 
 
-using namespace std;//qlq
+using namespace std;
 
 class Tanque{
 	private:
@@ -13,8 +13,8 @@ class Tanque{
 		
 		Tanque(char*,char*,float,float);	//Constructor alternativo
 
-		virtual void CalcularSuperficie()=0;	//funciones puras
-		virtual void CalcularPrecio()=0;
+		virtual float CalcularSuperficie()=0;	//funciones puras
+		virtual float CalcularPrecio()=0;
 		
 		void setCodigo(char*);	//setters
 		void setColor(char*);

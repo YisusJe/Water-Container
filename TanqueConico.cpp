@@ -1,7 +1,8 @@
 #include<iostream>
 #include "TanqueConico.h"
+#include <math.h>
 
-using namespace std; //qlq
+using namespace std;
 
 TanqueConico::TanqueConico():Tanque(){
 	this->diametroInf=0;
@@ -9,20 +10,22 @@ TanqueConico::TanqueConico():Tanque(){
 	this->altura=0;
 	this->angulo=0;
 }
-TanqueConico::TanqueConico(float diametroSup, float diametroInf, float altura, int angulo):Tanque(){
+TanqueConico::TanqueConico(char codigo[20],char color[11],float precio,float superficie,float diametroSup, float diametroInf, float altura, int angulo):Tanque(codigo,color,precio,superficie){
 	this->diametroInf=diametroInf;
 	this->diametroSup=diametroSup;
 	this->altura=altura;
 	this->angulo=angulo;		
 }
-void TanqueConico::CalcularSuperficie(){
-	
-	
-	
+float TanqueConico::CalcularSuperficie(){
+	float num;
+	float A;
+	const float PI=3.14159;
+	A=tan(2*angulo);
+	num=(PI*(pow(diametroSup,2)+pow(diametroInf,2)))+(pow(altura,1.33)/A);
 	
 }
-void TanqueConico::CalcularPrecio(){
-	
+float TanqueConico::CalcularPrecio(){
+	float costoM;
 	
 	
 	
@@ -46,7 +49,7 @@ float TanqueConico::getDiametroSup(){
 	return diametroSup;
 }
 float TanqueConico::getDiametroInf(){
-	return diamtroInf;
+	return diametroInf;
 }
 float TanqueConico::getAltura(){
 	return altura;

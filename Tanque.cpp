@@ -25,18 +25,18 @@ Tanque::Tanque(char codigo[20],char color[11],float precio,float superficie){//C
 
 
 
-void Tanque::CalcularPrecio(){			//funciones puras
+float Tanque::CalcularPrecio(){			//funciones puras
 	
 	
 	
-	
+	return 0.0;
 }
-void Tanque::CalcularSuperficie(){
+float Tanque::CalcularSuperficie(){
 	
 	//vacio
 	
-	//qlq
 	
+	return 0.0;
 }
 void Tanque::setCodigo(char codigo[20]){
 	strcpy(this->codigo,codigo);
@@ -63,4 +63,3 @@ float Tanque::getPrecio(){
 float Tanque::getSuperficie(){
 	return superficie;
 }
-

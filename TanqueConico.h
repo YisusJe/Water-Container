@@ -1,6 +1,6 @@
 #ifndef TanqueConicoH
 #define TanqueConicoH
-
+#include "Tanque.h"
 using namespace std;
 
 class TanqueConico : public Tanque{
@@ -9,10 +9,10 @@ class TanqueConico : public Tanque{
 	int angulo;
 	public:
 	TanqueConico(); //constructor por defec
-	TanqueConico(float,float,float,int); //const alternativo
+	TanqueConico(char*,char*,float,float,float,float,float,int); //const alternativo
 		
-	void CalcularSuperficie(); //funciones heredadas de un virtual pure
-	void CalcularPrecio();
+	float CalcularSuperficie(); //funciones heredadas de un virtual pure
+	float CalcularPrecio();
 	
 	void setDiametroSup(float); //setters
 	void setDiametroInf(float);
@@ -24,5 +24,6 @@ class TanqueConico : public Tanque{
 	float getAltura();
 	int getAngulo();
 	
-	//qlq
+	
 };
+#endif
