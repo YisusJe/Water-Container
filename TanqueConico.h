@@ -9,7 +9,7 @@ class TanqueConico : public Tanque{
 	int angulo;
 	public:
 	TanqueConico(); //constructor por defec
-	TanqueConico(char*,char*,float,float,float,float,float,int); //const alternativo
+	TanqueConico(char[20] ,char[11],float,float,float,float,float,int); //const alternativo
 		
 	float CalcularSuperficie(); //funciones heredadas de un virtual pure
 	float CalcularPrecio(float);

@@ -1,17 +1,17 @@
-# Project: Water-Container
+# Project: Water - Container
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Tanque.o Untitled5.o TanqueConico.o
-LINKOBJ  = main.o Tanque.o Untitled5.o TanqueConico.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
-CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Water-Container.exe
-CXXFLAGS = $(CXXINCS) 
-CFLAGS   = $(INCS) 
+OBJ      = main.o Tanque.o TanqueCilindrico.o TanqueConico.o
+LINKOBJ  = main.o Tanque.o TanqueCilindrico.o TanqueConico.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Water - Container.exe"
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -29,6 +29,9 @@ main.o: main.cpp
 
 Tanque.o: Tanque.cpp
 	$(CPP) -c Tanque.cpp -o Tanque.o $(CXXFLAGS)
+
+TanqueCilindrico.o: TanqueCilindrico.cpp
+	$(CPP) -c TanqueCilindrico.cpp -o TanqueCilindrico.o $(CXXFLAGS)
 
 TanqueConico.o: TanqueConico.cpp
 	$(CPP) -c TanqueConico.cpp -o TanqueConico.o $(CXXFLAGS)

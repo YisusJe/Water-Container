@@ -51,11 +51,11 @@ void Tanque::setSuperficie(float superficie){
 	this->superficie=superficie;
 }
 
-char Tanque::getCodigo(){
-	return *codigo;
+char * Tanque::getCodigo(){
+	return codigo;
 }
-char Tanque::getColor(){
-	return *color;
+char * Tanque::getColor(){
+	return color;
 }
 float Tanque::getPrecio(){
 	return precio;

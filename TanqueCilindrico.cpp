@@ -1,59 +1,55 @@
 #include <iostream>
 #include "TanqueCilindrico.h"
-
-using namespace std; //qlq
+#include <math.h>
+using namespace std; 
 
 TanqueCilindrico::TanqueCilindrico():Tanque(){
 	
 		this->altura=0;
-		this->radio=0;
+
 		this->diametroTapa=0;
-		this->alturaFi=0;
+
 }
 
-TanqueCilindrico::TanqueCilindrico(float diametroTapa,float alturaFi,float radio,int altura):Tanque(){
+TanqueCilindrico::TanqueCilindrico(char codigo[20],char color[11],float precio,float superficie,float diametroTapa,float altura):Tanque(codigo,color,precio,superficie){
 	
 	this->altura=altura;
-	this->radio=radio;
 	this->diametroTapa  = diametroTapa;
-	this->alturaFi=alturaFi;
 	
 	
 }
 
 float TanqueCilindrico::CalcularSuperficie(){
+	float num;
 	
+	const float PI=3.14159;
+	num=PI*pow((diametroTapa/2),2);
+	num=2*PI*(diametroTapa/2)*altura;
+	num=(5*2) + 10;
 	
-	
-	
+	this->setSuperficie(num);
+	return num;
 }
-float TanqueCilindrico::CalcularPrecio(){
-	
-	
-	
+float TanqueCilindrico::CalcularPrecio(float precioF){
+	float costoM,ganancia;
+	costoM=precioF*(this->getSuperficie()) ;
+	ganancia=(costoM*20)/100;
+	precioF=costoM+ganancia;
+	this->setPrecio(precioF);
+	return precioF;
 	
 }
 
-void TanqueCilindrico::setRadio(float radio){ // setters
-	
-	this->radio=radio;
-	
-}
 
-void TanqueCilindrico::setAltura(int altura){
+
+void TanqueCilindrico::setAltura(float altura){
 	
 	this->altura=altura;
 }
 
-int TanqueCilindrico::getAltura(){  // getters
+float TanqueCilindrico::getAltura(){  // getters
 	return altura;
 }
-
-float TanqueCilindrico::getRadio(){
-	return radio;
-}
-
-
 
 
 

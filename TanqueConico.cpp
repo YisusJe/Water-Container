@@ -21,7 +21,7 @@ float TanqueConico::CalcularSuperficie(){
 	float A;
 	const float PI=3.14159;
 	A=tan(2*angulo);
-	num=(PI*(pow(diametroSup,2)+pow(diametroInf,2)))+(pow(altura,1.33)/A);
+	num=(PI*(pow((diametroSup/2),2)+pow((diametroInf/2),2)))+(pow(altura,1.33)/A);
 	this->setSuperficie(num);
 	return num;
 }
