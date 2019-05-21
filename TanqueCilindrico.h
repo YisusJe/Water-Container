@@ -21,10 +21,10 @@ class TanqueCilindrico : public Tanque{
 		float CalcularPrecio(float);
 		
 		void setAltura(float);
-		void setRadio(float);
+		void setDiametroTapa(float);
 		
 		
-		float getRadio();
+		float getDiametroTapa();
 		float getAltura();
 		
 

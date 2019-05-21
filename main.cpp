@@ -1,7 +1,9 @@
 #include <iostream>
+#include <string.h>
+#include <typeinfo>
 #include "TanqueConico.h"
 #include "TanqueCilindrico.h"
-#include <string.h>
+
 using namespace std;
 int main() {
 	int x;
@@ -11,16 +13,21 @@ int main() {
 	float precio,superficie,diametroTapa,alturaFi,radio,altura,diametroSup,diametroInf;
 	float mayor=-999999999,menor=99999999;
 	int angulo;
-	float sup,precioF,acum1=0,acum2=0,promedio=0;
+	float sup,precioFibra,acum1=0,acum2=0,promedio=0;
 	int cont=0,opcion,j,cont1=0;
 	
+	do{
 	
 	cout<<"Introduzca el numero de tanques que posee:";
 	cin>>x;
+	system("cls");
+}while(x<=0);
 	float mayormenor[x];
 	char variable[20];
 	system("cls");
 	Tanque **vtanques=new Tanque*[x];
+	TanqueCilindrico *objaux4[x];	//vectores aux para cargar atributos
+	TanqueConico *objaux2[x];
 	for(j=0;j<x;j++){
 		do{
 		cout<<"El tanque numero: "<<j+1<<" es conico o cilindrico"<<endl;
@@ -45,20 +52,25 @@ int main() {
 			cin.getline(color,11);
 			vtanques[j]->setColor(color);
 			cin.sync();
+			objaux4[j]=(TanqueCilindrico *) vtanques[j];
 			cout<<endl<<"Diametro de la tapa:";
 			cin>>diametroTapa;
+			objaux4[j]->setDiametroTapa(diametroTapa);
 			cout<<endl<<"Altura:";
 			cin>>altura;
+			objaux4[j]->setAltura(altura);
 			cout<<endl<<"Precio de la fibra del vidrio:";
-			cin>>precioF;
+			cin>>precioFibra;
 			sup=vtanques[j]->CalcularSuperficie();
-			mayormenor[j]=vtanques[j]->CalcularPrecio(precioF);
+			mayormenor[j]=vtanques[j]->CalcularPrecio(precioFibra);
 			acum1=acum1+mayormenor[j];
 			cont1++;
 			system("cls");
+			
 		}
 		else{
 			vtanques[j]=new TanqueConico(codigo,color,precio,superficie,diametroSup,diametroInf,angulo,altura);
+			
 			cout<<"Codigo:";
 			cin.sync();
 			cin.getline(codigo,20);
@@ -68,22 +80,27 @@ int main() {
 			cin.getline(color,11);
 			vtanques[j]->setColor(color);
 			cin.sync();
+			objaux2[j]=(TanqueConico *) vtanques[j];
 			cout<<endl<<"Diametro superior:";
 			cin>>diametroSup;
+			objaux2[j]->setDiametroSup(diametroSup);
 			cout<<endl<<"Diametro inferior:";
 			cin>>diametroInf;
+			objaux2[j]->setDiametroInf(diametroInf);
 			cout<<endl<<"Angulo:";
 			cin>>angulo;
+			objaux2[j]->setAngulo(angulo);
 			cout<<endl<<"Altura:";
 			cin>>altura;
-			cout<<endl<<"Precio de la fibra del vidrio";
-			cin>>precioF;
+			objaux2[j]->setAltura(altura);
+			cout<<endl<<"Precio de la fibra del vidrio:";
+			cin>>precioFibra;
 			sup=vtanques[j]->CalcularSuperficie();
-			cout<<sup;
-			mayormenor[j]=vtanques[j]->CalcularPrecio(precioF);
+			mayormenor[j]=vtanques[j]->CalcularPrecio(precioFibra);
 			cont++;
 			acum2=acum2+vtanques[j]->getPrecio();
-		//	system("cls");
+			
+			system("cls");
 		}
 		
 	}
@@ -112,30 +129,49 @@ int main() {
 				
 				cout<<"El codigo es:";
 				cin>>codigocomp;
+				
 				for(int i=0;i<x;i++){
-					if(strcmpi(codigocomp,vtanques[i]->getCodigo())==0) {
-						cout<<"Codigo:"<<vtanques[i]->getCodigo()<<endl;
-						cout<<"Color:"<<vtanques[i]->getColor()<<endl;
-						cout<<"Precio:"<<vtanques[i]->getPrecio()<<endl;
-						cout<<"Superficie:"<<vtanques[i]->getSuperficie()<<endl;
-						system("pause");
+					if(strcmpi(codigocomp,vtanques[i]->getCodigo())==0){
+						
+						if(typeid(*vtanques[i])==typeid(TanqueConico)) {
+							cout<<"Codigo: "<<vtanques[i]->getCodigo()<<endl;
+							cout<<"Color: "<<vtanques[i]->getColor()<<endl;
+							cout<<"Precio: "<<vtanques[i]->getPrecio()<<" Bs"<<endl;
+							cout<<"Superficie: "<<vtanques[i]->getSuperficie()<<endl;
+							TanqueConico *objaux=(TanqueConico *) vtanques[i];
+							cout<<"Angulo: "<<objaux->getAngulo()<<endl;
+							cout<<"DiametroInf: "<<objaux->getDiametroInf()<<endl;
+							cout<<"DiametroSup: "<<objaux->getDiametroSup()<<endl;
+							cout<<"Altura: "<<objaux->getAltura()<<endl;
+							system("pause");
 					}
 					else{
-						break;
+							cout<<"Codigo: "<<vtanques[i]->getCodigo()<<endl;
+							cout<<"Color: "<<vtanques[i]->getColor()<<endl;
+							cout<<"Precio: "<<vtanques[i]->getPrecio()<<" Bs"<<endl;
+							cout<<"Superficie: "<<vtanques[i]->getSuperficie()<<endl;
+							TanqueCilindrico *objaux3=(TanqueCilindrico *)vtanques[i];
+							cout<<"Altura: "<<objaux3->getAltura()<<endl;
+							cout<<"Diametro de la Tapa: "<<objaux3->getDiametroTapa()<<endl;
+							system("pause");
+					
 					}
+					
+				}
+					
 					system("cls");
 				}
 				break;
 			case 2:
 				cout<<"Total de los tanques cilindricos"<<endl;
-				cout<<acum1;
+				cout<<acum1<<" Bs"<<endl;
 				system("pause");
 				system("cls");
 				break;
 			case 3:
 				promedio=acum2/cont;
 				cout<<"Promedio de los tanques conicos:"<<endl;
-				cout<<promedio;
+				cout<<promedio<<" Bs"<<endl;
 				system("pause");
 				system("cls");
 				break;
@@ -149,9 +185,7 @@ int main() {
 					if(menor>mayormenor[i]){
 						menor=mayormenor[i];
 					}
-					system("pause");
-					system("cls");
-					
+					system("cls");	
 				}
 				cout<<"Tanque mas caro:"<<mayor<<endl;
 				cout<<"Tanque mas barato:"<<menor<<endl;
@@ -160,8 +194,8 @@ int main() {
 				break;
 				
 			case 5:
-			cout<<"Numero de tanques conicos"<<cont<<endl;
-			cout<<"Numero de tanque cilindricos"<<cont;
+			cout<<"Numero de tanques conicos:"<<cont<<endl;
+			cout<<"Numero de tanque cilindricos:"<<cont1<<endl;
 			system("pause");
 			system("cls");
 			break;

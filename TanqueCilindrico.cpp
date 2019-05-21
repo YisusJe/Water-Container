@@ -20,23 +20,22 @@ TanqueCilindrico::TanqueCilindrico(char codigo[20],char color[11],float precio,f
 }
 
 float TanqueCilindrico::CalcularSuperficie(){
-	float num;
+	float num,A,B;
 	
 	const float PI=3.14159;
-	num=PI*pow((diametroTapa/2),2);
-	num=2*PI*(diametroTapa/2)*altura;
-	num=(5*2) + 10;
-	
+	A=PI*pow(diametroTapa/2,2);
+	B=2*PI*(diametroTapa/2)*altura;
+	num=A+B;
 	this->setSuperficie(num);
 	return num;
 }
-float TanqueCilindrico::CalcularPrecio(float precioF){
-	float costoM,ganancia;
-	costoM=precioF*(this->getSuperficie()) ;
+float TanqueCilindrico::CalcularPrecio(float precioFibra){
+	float costoM=0,ganancia=0,precio;
+	costoM=precioFibra*(this->getSuperficie()) ;
 	ganancia=(costoM*20)/100;
-	precioF=costoM+ganancia;
-	this->setPrecio(precioF);
-	return precioF;
+	precio=costoM+ganancia;
+	this->setPrecio(precio);
+	return precio;
 	
 }
 
@@ -46,10 +45,14 @@ void TanqueCilindrico::setAltura(float altura){
 	
 	this->altura=altura;
 }
+void TanqueCilindrico::setDiametroTapa(float diametroTapa){
+	this->diametroTapa=diametroTapa;
+}
 
 float TanqueCilindrico::getAltura(){  // getters
 	return altura;
 }
-
-
+float TanqueCilindrico::getDiametroTapa(){
+	return diametroTapa;
+}
 

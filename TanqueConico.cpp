@@ -10,7 +10,7 @@ TanqueConico::TanqueConico():Tanque(){
 	this->altura=0;
 	this->angulo=0;
 }
-TanqueConico::TanqueConico(char codigo[20],char color[11],float precio,float superficie,float diametroSup, float diametroInf, float altura, int angulo):Tanque(codigo,color,precio,superficie){
+TanqueConico::TanqueConico(char codigo[20],char color[11],float precio,float superficie,float diametroSup, float diametroInf, float altura, float angulo):Tanque(codigo,color,precio,superficie){
 	this->diametroInf=diametroInf;
 	this->diametroSup=diametroSup;
 	this->altura=altura;
@@ -25,13 +25,14 @@ float TanqueConico::CalcularSuperficie(){
 	this->setSuperficie(num);
 	return num;
 }
-float TanqueConico::CalcularPrecio(float precioF){  //PEDIRLE AL USUARIO EL PRECIO DE LA FIBRA DE VIDRIO
-	float costoM,ganancia;
-	costoM=precioF*(this->getSuperficie()) ;
+float TanqueConico::CalcularPrecio(float PrecioFibra){  //PEDIRLE AL USUARIO EL PRECIO DE LA FIBRA DE VIDRIO
+	float costoM=0,ganancia=0;
+	float precio;
+	costoM=PrecioFibra*(this->getSuperficie());
 	ganancia=(costoM*20)/100;
-	precioF=costoM+ganancia;
-	this->setPrecio(precioF);
-	return precioF;
+	precio=costoM+ganancia;
+	this->setPrecio(precio);
+	return precio;
 }
 
 
@@ -44,7 +45,7 @@ void TanqueConico::setDiametroInf(float diametroInf){
 void TanqueConico::setAltura(float altura){
 	this->altura=altura;
 }
-void TanqueConico::setAngulo(int angulo){
+void TanqueConico::setAngulo(float angulo){
 	this->angulo=angulo;
 }
 
